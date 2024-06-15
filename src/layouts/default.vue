@@ -30,7 +30,10 @@ useHead({
   <Main>
     <Bar container>
       <template #left>
-        <h1 class="font-bold">{{ profile.name }}</h1>
+        <h1 class="font-bold flex items-center gap-spacing-xs">
+          <Avatar :src="profile.avatar" :alt="profile.name" />
+          {{ profile.name }}
+        </h1>
       </template>
       <template #center>
         <Input
@@ -49,29 +52,36 @@ useHead({
           <Button
             variant="outlined"
             icon="translate"
+            shortcut="Cmd+G"
             @click="handleTranslate"
           />
           <template #tip>
             Language
-            <Kbd label="⌘ X" />
+            <Kbd label="⌘ G" />
           </template>
         </Tooltip>
         <Tooltip>
-          <Button variant="outlined" icon="theme" @click="handleToggleTheme" />
+          <Button
+            variant="outlined"
+            icon="theme"
+            shortcut="Cmd+H"
+            @click="handleToggleTheme"
+          />
           <template #tip>
             Theme
-            <Kbd label="⌘ X" />
+            <Kbd label="⌘ H" />
           </template>
         </Tooltip>
         <Tooltip>
           <Button
             variant="outlined"
             :icon="mode === 'dark' ? 'moon' : 'sun'"
+            shortcut="Cmd+J"
             @click="handleToggleColorMode"
           />
           <template #tip>
             {{ mode === "dark" ? "Dark Mode" : "Light Mode" }}
-            <Kbd label="⌘ X" />
+            <Kbd label="⌘ J" />
           </template>
         </Tooltip>
       </template>
