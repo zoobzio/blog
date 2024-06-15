@@ -2,7 +2,7 @@ import { defineNuxtConfig } from "nuxt/config";
 
 export default defineNuxtConfig({
   srcDir: "src/",
-  extends: ["@zoobzio/foundation"],
+  extends: ["../foundation"],
   modules: ["@nuxt/content"],
   icon: {
     moon: "i-ic-twotone-dark-mode",

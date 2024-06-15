@@ -15,11 +15,8 @@ dependencies:
     specifier: ^2.12.1
     version: 2.12.1(nuxt@3.12.1)(vue@3.4.29)
   '@vueuse/core':
-    specifier: ^10.10.1
+    specifier: ^10.11.0
     version: 10.11.0(vue@3.4.29)
-  '@vueuse/nuxt':
-    specifier: ^10.10.1
-    version: 10.11.0(nuxt@3.12.1)(vue@3.4.29)
   '@zoobzio/foundation':
     specifier: link:../foundation
     version: link:../foundation
@@ -37,9 +34,6 @@ devDependencies:
   '@typescript-eslint/parser':
     specifier: ^7.13.0
     version: 7.13.0(eslint@9.5.0)(typescript@5.4.5)
-  '@untheme/kit':
-    specifier: ^0.0.38
-    version: 0.0.38
   eslint:
     specifier: ^9.4.0
     version: 9.5.0
@@ -2360,10 +2354,6 @@ packages:
       vite: 5.3.1
     transitivePeerDependencies:
       - rollup
-
-  /@untheme/kit@0.0.38:
-    resolution: {integrity: sha512-JGrk0fFyM8utjPutKI9NlemlvQWQiSRKqae+n4wRQYyMEUjn+0cVs6QljCOs3K7Kto8CRI2DWzdhmSOJCLzg2A==}
-    dev: true
 
   /@vercel/nft@0.26.5:
     resolution: {integrity: sha512-NHxohEqad6Ra/r4lGknO52uc/GrWILXAMs1BB4401GTqww0fw1bAqzpG1XHuDO+dprg4GvsD9ZLLSsdo78p9hQ==}

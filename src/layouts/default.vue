@@ -3,6 +3,21 @@ const { mode, theme } = useUntheme();
 const themes = useThemes();
 const { profile } = useAppConfig();
 
+const tabs = [
+  {
+    key: "blog",
+    label: "Blog",
+    to: "/blog",
+    icon: "theme",
+  },
+  {
+    key: "projects",
+    label: "Projects",
+    to: "/projects",
+    icon: "home",
+  },
+];
+
 const handleSearch = () => {
   alert("Search!");
 };
@@ -28,64 +43,60 @@ useHead({
 
 <template>
   <Main>
-    <Bar container>
-      <template #left>
-        <h1 class="font-bold flex items-center gap-spacing-xs">
+    <ClientOnly>
+      <Bar sticky flexible container>
+        <template #left>
           <Avatar :src="profile.avatar" :alt="profile.name" />
-          {{ profile.name }}
-        </h1>
-      </template>
-      <template #center>
-        <Input
-          prepend-icon="search"
-          placeholder="Search..."
-          readonly
-          @click="handleSearch"
-        >
-          <template #append>
-            <Kbd label="⌘ K" />
-          </template>
-        </Input>
-      </template>
-      <template #right>
-        <Tooltip>
-          <Button
-            variant="outlined"
-            icon="translate"
-            shortcut="Cmd+G"
-            @click="handleTranslate"
-          />
-          <template #tip>
-            Language
-            <Kbd label="⌘ G" />
-          </template>
-        </Tooltip>
-        <Tooltip>
-          <Button
-            variant="outlined"
-            icon="theme"
-            shortcut="Cmd+H"
-            @click="handleToggleTheme"
-          />
-          <template #tip>
-            Theme
-            <Kbd label="⌘ H" />
-          </template>
-        </Tooltip>
-        <Tooltip>
-          <Button
-            variant="outlined"
-            :icon="mode === 'dark' ? 'moon' : 'sun'"
-            shortcut="Cmd+J"
-            @click="handleToggleColorMode"
-          />
-          <template #tip>
-            {{ mode === "dark" ? "Dark Mode" : "Light Mode" }}
-            <Kbd label="⌘ J" />
-          </template>
-        </Tooltip>
-      </template>
-    </Bar>
-    <slot />
+          <Tabs :tabs="tabs" />
+        </template>
+        <template #right>
+          <Input
+            prepend-icon="search"
+            placeholder="Search..."
+            readonly
+            @click="handleSearch"
+          >
+            <template #append>
+              <span class="flex items-center gap-spacing-2xs">
+                <Kbd label="⌘" />
+                <Kbd label="K" />
+              </span>
+            </template>
+          </Input>
+          <Tooltip>
+            <Button
+              variant="outlined"
+              icon="translate"
+              shortcut="Cmd+G"
+              @click="handleTranslate"
+            />
+            <template #tip> Language </template>
+          </Tooltip>
+          <Tooltip>
+            <Button
+              variant="outlined"
+              icon="theme"
+              shortcut="Cmd+H"
+              @click="handleToggleTheme"
+            />
+            <template #tip> Theme </template>
+          </Tooltip>
+          <Tooltip>
+            <Button
+              variant="outlined"
+              :icon="mode === 'dark' ? 'moon' : 'sun'"
+              shortcut="Cmd+J"
+              @click="handleToggleColorMode"
+            />
+            <template #tip>
+              {{ mode === "dark" ? "Dark Mode" : "Light Mode" }}
+            </template>
+          </Tooltip>
+        </template>
+      </Bar>
+      <div class="container mx-auto">
+        <slot />
+      </div>
+    </ClientOnly>
   </Main>
 </template>
