@@ -4,11 +4,21 @@ export default defineNuxtConfig({
   srcDir: "src/",
   extends: ["../foundation"],
   modules: ["@nuxt/content"],
-  icon: {
-    moon: "i-ic-twotone-dark-mode",
-    sun: "i-ic-twotone-light-mode",
-    theme: "i-ic-twotone-color-lens",
-    translate: "i-ic-twotone-translate",
-    search: "i-ic-twotone-search",
+  i18n: {
+    strategy: "no_prefix",
+    defaultLocale: "en",
+    langDir: "lang",
+    lazy: true,
+    locales: [
+      {
+        code: "en",
+        file: "en.ts",
+      },
+      {
+        code: "es",
+        file: "es.ts",
+      },
+      // TODO add more languages
+    ],
   },
 });
