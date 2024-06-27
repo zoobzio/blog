@@ -66,7 +66,7 @@ onMounted(() => {
 
 <template>
   <div :class="ui.wrapper({ class: extend?.wrapper })">
-    <h3 :class="ui.title()">Table of Contents</h3>
+    <h3 :class="ui.title()">On this page</h3>
     <Links :links="toc" :active="active" />
   </div>
 </template>

@@ -12,60 +12,25 @@ if (!page.value) {
     fatal: true,
   });
 }
-
-const { data: surround } = await useAsyncData(
-  `${route.path}-surround`,
-  () => {
-    return queryContent<BlogPage>()
-      .where({
-        _extension: "md",
-        navigation: { $ne: false },
-      })
-      .only(["created", "title", "description", "_path"])
-      .findSurround(path);
-  },
-  { default: () => [] }
-);
 </script>
 
 <template>
-  <Page>
+  <Pane>
     <template #left>
       <Nav />
     </template>
+    <div class="h-[200px] bg-ui-primary rounded-b-2xl" />
     <Article>
-      <div class="pb-spacing-m border-b border-ui-outline">
-        <p class="py-spacing-2xs text-ui-primary">{{ page?.category }}</p>
-        <h1>{{ page?.title }}</h1>
-        <p>{{ page?.description }}</p>
+      <div class="border-b border-ui-outline pt-spacing-m">
+        <small class="opacity-60 font-bold">{{ page?.date }}</small>
+        <h1 class="pb-none">{{ page?.title }}</h1>
+        <p class="pt-none">{{ page?.description }}</p>
       </div>
       <ContentRenderer v-if="page?.body" :value="page" />
-      <div class="flex items-center gap-spacing-m py-spacing-m">
-        <Button
-          v-if="surround[0]"
-          variant="text"
-          :link="{
-            to: `/blog${surround[0]._path}`,
-            label: surround[0].title,
-          }"
-          :label="surround[0].title"
-          prepend-icon="left"
-        />
-        <Button
-          v-if="surround[1]"
-          variant="text"
-          :link="{
-            to: `/blog${surround[1]._path}`,
-            label: surround[1].title,
-          }"
-          :label="surround[1].title"
-          append-icon="right"
-          class="ml-auto"
-        />
-      </div>
     </Article>
+    <Surround />
     <template v-if="page?.body?.toc?.links?.length" #right>
       <Toc :links="page.body.toc.links" :extend="{ wrapper: 'py-spacing-s' }" />
     </template>
-  </Page>
+  </Pane>
 </template>
