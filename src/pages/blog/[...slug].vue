@@ -22,9 +22,23 @@ if (!page.value) {
     <div class="h-[200px] bg-ui-primary rounded-b-2xl" />
     <Article>
       <div class="border-b border-ui-outline pt-spacing-m">
-        <small class="opacity-60 font-bold">{{ page?.date }}</small>
-        <h1 class="pb-none">{{ page?.title }}</h1>
-        <p class="pt-none">{{ page?.description }}</p>
+        <div class="flex items-center gap-spacing-xs">
+          <Code inline>
+            <Icon icon="calendar" />
+            {{ new Date(String(page?.date)).toLocaleDateString() }}
+          </Code>
+          <Code inline>
+            <Icon icon="hourglass" />
+            7 minutes
+          </Code>
+          <Code inline>
+            <Icon icon="reader" />
+            456 views
+          </Code>
+          <Button icon="share" class="ml-auto" />
+        </div>
+        <h1>{{ page?.title }}</h1>
+        <p>{{ page?.description }}</p>
       </div>
       <ContentRenderer v-if="page?.body" :value="page" />
     </Article>

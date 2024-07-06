@@ -1,8 +1,7 @@
 ---
 title: "Apple"
 description: "I am a banana"
-date: "2024-06-23"
-category: "Runescape"
+date: "2024-06-21"
 ---
 
 booty booty booty

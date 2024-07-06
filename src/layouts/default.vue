@@ -13,10 +13,6 @@ const tabs = [
   },
 ];
 
-const handleSearch = () => {
-  alert("Search!");
-};
-
 useHead({
   title: `${profile.name} | Blog`,
 });
@@ -24,7 +20,7 @@ useHead({
 
 <template>
   <Main>
-    <Bar sticky flexible container :extend="{ inner: 'max-w-[1024px]' }">
+    <Bar sticky flexible container :extend="{ inner: 'max-w-[1280px]' }">
       <template #left>
         <Avatar :src="profile.avatar" :alt="profile.name" />
         <Tabs :tabs="tabs" />
@@ -35,7 +31,7 @@ useHead({
         <AppColormode />
       </template>
     </Bar>
-    <div class="container mx-auto max-w-[1024px]">
+    <div class="container mx-auto max-w-[1280px]">
       <slot />
     </div>
   </Main>

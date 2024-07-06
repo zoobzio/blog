@@ -1,7 +1,7 @@
 <script lang="ts">
 export const useTocUI = defineComponentUI({
   slots: {
-    wrapper: "",
+    wrapper: "sticky top-[51px]",
     title:
       "font-bold text-ui-on-surface py-spacing-xs flex items-center gap-spacing-xs",
   },
@@ -26,16 +26,18 @@ export interface TocProps {
 
 <script setup lang="ts">
 const props = defineProps<TocProps>();
-const ui = useTocUI();
+const ui = useTocUI(props.ui);
 const visibility = ref<Ref<boolean>[]>([]);
 
 // TODO support more depth than just 2
 const toc = props.links.map((l) => ({
   to: `#${l.id}`,
   label: l.text,
+  depth: l.depth,
   children: l.children?.map((c) => ({
     to: `#${c.id}`,
     label: c.text,
+    depth: c.depth,
   })),
 }));
 

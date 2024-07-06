@@ -1,8 +1,7 @@
 ---
 title: Pudding
 description: I am a banana
-created: "2024-06-24"
-category: "Runescape"
+date: "2024-06-24"
 ---
 
 booty booty booty

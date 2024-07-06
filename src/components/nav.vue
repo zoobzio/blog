@@ -1,10 +1,8 @@
 <script setup lang="ts">
 const route = useRoute();
 
-const open = useState<string[]>(() => []);
-
 const { data: navigation } = await useAsyncData("navigation", () =>
-  fetchContentNavigation({ sort: { date: 1 } })
+  fetchContentNavigation()
 );
 if (!navigation) {
   throw createError({
@@ -24,6 +22,8 @@ const groups =
     })),
   })) ?? [];
 
+const open = useState<string[]>(() => []);
+
 const routeIndex = groups.findIndex((g) =>
   g?.links?.find((l) => l.to === route.path)
 );
@@ -33,7 +33,7 @@ if (routeIndex >= 0) {
 </script>
 
 <template>
-  <nav class="pt-spacing-m">
+  <nav class="pt-spacing-m sticky top-[51px]">
     <Button
       prepend-icon="search"
       :label="$t('navSearch')"
