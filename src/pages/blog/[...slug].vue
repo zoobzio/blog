@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePageMeta({
+  layout: "blog",
+});
+
 const route = useRoute();
 const path = route.path.replace("/blog", "");
 
@@ -23,17 +27,17 @@ if (!page.value) {
     <Article>
       <div class="border-b border-ui-outline pt-spacing-m">
         <div class="flex items-center gap-spacing-xs">
-          <Code inline>
+          <Code v-if="page?.date" inline>
             <Icon icon="calendar" />
-            {{ new Date(String(page?.date)).toLocaleDateString() }}
+            {{ new Date(String(page.date)).toLocaleDateString() }}
           </Code>
-          <Code inline>
+          <Code v-if="page?.readIn" inline>
             <Icon icon="hourglass" />
-            7 minutes
+            {{ `${page.readIn} ${$t("minutes")}` }}
           </Code>
-          <Code inline>
+          <Code v-if="page?.views" inline>
             <Icon icon="reader" />
-            456 views
+            {{ `${page.views} ${$t("views")}` }}
           </Code>
           <Button icon="share" class="ml-auto" />
         </div>

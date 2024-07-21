@@ -1,8 +1,9 @@
 <script setup lang="ts">
 const route = useRoute();
+const query = queryContent().sort({ date: -1 });
 
 const { data: navigation } = await useAsyncData("navigation", () =>
-  fetchContentNavigation()
+  fetchContentNavigation(query)
 );
 if (!navigation) {
   throw createError({
@@ -34,19 +35,7 @@ if (routeIndex >= 0) {
 
 <template>
   <nav class="pt-spacing-m sticky top-[51px]">
-    <Button
-      prepend-icon="search"
-      :label="$t('navSearch')"
-      grow
-      variant="outlined"
-    >
-      <template #append>
-        <span class="flex items-center gap-spacing-2xs">
-          <Kbd label="⌘" />
-          <Kbd label="K" />
-        </span>
-      </template>
-    </Button>
+    <Search />
     <Accordion
       v-model="open"
       :groups="groups"

@@ -2,6 +2,8 @@
 title: "This is a test"
 description: "I am a banana"
 date: "2024-06-24"
+readIn: 7
+views: 256
 category: "Nuxt"
 ---
 

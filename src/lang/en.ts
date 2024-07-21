@@ -1,10 +1,13 @@
 export default {
   // nav
-  navBlog: "Blog",
-  navProjects: "Projects",
-  navSearch: "Search...",
-  navTranslate: "Translate language",
-  navTheme: "Change theme",
-  navDarkMode: "Dark mode",
-  navLightMode: "Light mode",
+  blog: "Blog",
+  projects: "Projects",
+  search: "Search...",
+  translate: "Translate language",
+  theme: "Change theme",
+  darkMode: "Dark mode",
+  lightMode: "Light mode",
+  // page
+  minutes: "Minutes",
+  views: "Views",
 };

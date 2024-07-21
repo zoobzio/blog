@@ -26,7 +26,6 @@ useHead({
         <Tabs :tabs="tabs" />
       </template>
       <template #right>
-        <AppTranslate />
         <AppTheme />
         <AppColormode />
       </template>

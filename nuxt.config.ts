@@ -13,10 +13,6 @@ export default defineNuxtConfig({
         code: "en",
         file: "en.ts",
       },
-      {
-        code: "es",
-        file: "es.ts",
-      },
       // TODO add more languages
     ],
   },

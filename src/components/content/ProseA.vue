@@ -4,7 +4,7 @@ const props = defineProps<AProps>();
 </script>
 
 <template>
-  <A class="booty" v-bind="props">
+  <A v-bind="props">
     <slot />
   </A>
 </template>
