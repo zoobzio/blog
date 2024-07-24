@@ -1,8 +1,5 @@
 <script setup lang="ts">
-definePageMeta({
-  layout: "blog",
-});
-
+const config = useAppConfig();
 const route = useRoute();
 const path = route.path.replace("/blog", "");
 
@@ -16,6 +13,13 @@ if (!page.value) {
     fatal: true,
   });
 }
+
+useHead({
+  title: `${config.profile.name} | ${page.value.title}`,
+});
+definePageMeta({
+  layout: "blog",
+});
 </script>
 
 <template>
@@ -39,7 +43,6 @@ if (!page.value) {
             <Icon icon="reader" />
             {{ `${page.views} ${$t("views")}` }}
           </Code>
-          <Button icon="share" class="ml-auto" />
         </div>
         <h1>{{ page?.title }}</h1>
         <p>{{ page?.description }}</p>

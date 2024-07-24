@@ -10,4 +10,10 @@ export default {
   // page
   minutes: "Minutes",
   views: "Views",
+  // theme
+  themeTitle: "Themes",
+  themeDescription: "Change the currently active color scheme...",
+  // search
+  searchTitle: "Articles",
+  searchDescription: "Find exactly what you are looking for...",
 };

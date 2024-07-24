@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const { profile } = useAppConfig();
-
 const tabs = [
   {
     key: "blog",
@@ -12,10 +11,6 @@ const tabs = [
     },
   },
 ];
-
-useHead({
-  title: `${profile.name} | Blog`,
-});
 </script>
 
 <template>
