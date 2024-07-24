@@ -2,7 +2,7 @@ import { defineNuxtConfig } from "nuxt/config";
 
 export default defineNuxtConfig({
   srcDir: "src/",
-  extends: ["../foundation"],
+  extends: ["@zoobzio/foundation"],
   i18n: {
     strategy: "no_prefix",
     defaultLocale: "en",
